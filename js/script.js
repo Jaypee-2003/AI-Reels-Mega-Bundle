@@ -6,6 +6,15 @@ document.addEventListener('DOMContentLoaded', function() {
         offset: 100
     });
 
+    // Get Started Now button functionality
+    const getStartedButton = document.querySelector('.btn-gradient.pulse-strong');
+    if (getStartedButton) {
+        getStartedButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.location.href = 'https://superprofile.bio/vp/ultimate-2000-reels-bundle-go-viral-with-ease';
+        });
+    }
+
     // Enhanced FAQ Functionality
     const faqButtons = document.querySelectorAll('.faq-section .btn-link');
     faqButtons.forEach(button => {
