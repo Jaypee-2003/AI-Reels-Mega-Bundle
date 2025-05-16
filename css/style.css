@@ -135,7 +135,7 @@ body {
     font-size: 1.2rem;
     max-width: 800px;
     margin: 0 auto 2rem auto;
-    text-align: left;
+    text-align: center;
     font-weight: 500;
     line-height: 1.6;
 }
@@ -511,6 +511,7 @@ footer::before {
     opacity: 0;
     transition: opacity 0.5s ease;
     z-index: 1;
+    pointer-events: none;
 }
 
 .card:hover .card-image::before {
