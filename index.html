@@ -1,233 +1,308 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Reels Mega Bundle</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .reels-section {
+        background-color: #000;
+        padding: 60px 0;
+      }
+      .reel-container {
+        position: relative;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .reel-video {
+        width: 100%;
+        height: 640px;
+        object-fit: cover;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Reels Mega Bundle</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    .reels-section {
-      background-color: #000;
-      padding: 60px 0;
-    }
-    .reel-container {
-      position: relative;
-      width: 100%;
-      max-width: 360px;
-      margin: 0 auto;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-    .reel-video {
-      width: 100%;
-      height: 640px;
-      object-fit: cover;
-    }
-    
-    /* Canva Pro Special Styling */
-    .canva-pro-badge {
-      background: linear-gradient(135deg, #00C4CC 0%, #7D2AE8 100%);
-      color: white;
-      border-radius: 8px;
-      padding: 8px 15px;
-      font-weight: bold;
-      display: inline-block;
-      margin: 5px 0;
-      box-shadow: 0 4px 15px rgba(0, 196, 204, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .canva-pro-badge::before {
-      content: "";
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
-      transform: rotate(45deg);
-      animation: shine 3s infinite;
-    }
-    
-    .canva-pro-icon {
-      font-size: 1.2em;
-      margin-right: 5px;
-      vertical-align: middle;
-    }
-    
-    .canva-pro-banner {
-      background: url('assets/images/canva-bg.jpg') center center/cover;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 20px 0;
-      position: relative;
-      overflow: hidden;
-      border: 2px solid #00C4CC;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-    
-    .canva-pro-banner::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(0,196,204,0.8) 0%, rgba(125,42,232,0.8) 100%);
-      z-index: 1;
-    }
-    
-    .canva-pro-content {
-      position: relative;
-      z-index: 2;
-      color: white;
-    }
-    
-    .canva-pro-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    
-    .canva-pro-features {
-      list-style: none;
-      padding: 0;
-      margin: 15px 0;
-    }
-    
-    .canva-pro-features li {
-      margin-bottom: 8px;
-      padding-left: 25px;
-      position: relative;
-    }
-    
-    .canva-pro-features li::before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      top: 0;
-      color: #FFF;
-      font-weight: bold;
-    }
-    
-    .pulse-strong {
-      animation: pulse-strong 2s infinite;
-      box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
-    }
-    
-    @keyframes pulse-strong {
-      0% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+      /* Canva Pro Special Styling */
+      .canva-pro-badge {
+        background: linear-gradient(135deg, #00c4cc 0%, #7d2ae8 100%);
+        color: white;
+        border-radius: 8px;
+        padding: 8px 15px;
+        font-weight: bold;
+        display: inline-block;
+        margin: 5px 0;
+        box-shadow: 0 4px 15px rgba(0, 196, 204, 0.5);
+        position: relative;
+        overflow: hidden;
       }
-      70% {
-        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
-      }
-      100% {
-        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
-      }
-    }
-    
-    @keyframes shine {
-      0% {
-        left: -100%;
-        top: -100%;
-      }
-      20%, 100% {
-        left: 100%;
-        top: 100%;
-      }
-    }
-    
-    .reach-card {
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      background: white;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    
-    .reach-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    }
-    
-    .reach-image {
-      position: relative;
-    }
-    
-    .reach-stats {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      right: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-  </style>
-</head>
 
-<body>
-  <!-- Hero Section (Updated) -->
-  <section class="hero-section text-white">
-    <div class="container">
-      <div class="hero-top mb-3 text-left">
-        <div class="hero-badge mb-2 aos-fade" data-aos="fade-down">#1 Trending Reels Bundle</div>
-        <div class="hero-badge mb-2 aos-fade" data-aos="fade-down" data-aos-delay="100"><span class="emoji">🚀</span> FIRST TIME ON INTERNET WORLD <span class="emoji">🌍</span></div>
-        <h1 class="hero-title mb-2 aos-fade" data-aos="fade-right" data-aos-delay="200">Unlock <span class="highlight">1600+ AI-Generated Reels</span> for Your Social Media Success</h1>
-        <div class="hero-subtitle mb-2 aos-fade" data-aos="fade-right" data-aos-delay="300">No Design Skills Needed. 100% Copyright-Free. Ultra-HD Quality. Instant Access.</div>
-      </div>
-      <div class="row align-items-center justify-content-center">
-        <div class="col-lg-7 mb-4 mb-lg-0">
-          <div class="card-image">
-            <img src="assets/images/main.jpg" class="card-img-top" alt="Motivational Reels">
+      .canva-pro-badge::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: rotate(45deg);
+        animation: shine 3s infinite;
+      }
+
+      .canva-pro-icon {
+        font-size: 1.2em;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      .canva-pro-banner {
+        background: url("assets/images/canva-bg.jpg") center center/cover;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 20px 0;
+        position: relative;
+        overflow: hidden;
+        border: 2px solid #00c4cc;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .canva-pro-banner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 196, 204, 0.8) 0%,
+          rgba(125, 42, 232, 0.8) 100%
+        );
+        z-index: 1;
+      }
+
+      .canva-pro-content {
+        position: relative;
+        z-index: 2;
+        color: white;
+      }
+
+      .canva-pro-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .canva-pro-features {
+        list-style: none;
+        padding: 0;
+        margin: 15px 0;
+      }
+
+      .canva-pro-features li {
+        margin-bottom: 8px;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .canva-pro-features li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #fff;
+        font-weight: bold;
+      }
+
+      .pulse-strong {
+        animation: pulse-strong 2s infinite;
+        box-shadow: 0 0 0 rgba(255, 255, 255, 0.4);
+      }
+
+      @keyframes pulse-strong {
+        0% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+        }
+      }
+
+      @keyframes shine {
+        0% {
+          left: -100%;
+          top: -100%;
+        }
+        20%,
+        100% {
+          left: 100%;
+          top: 100%;
+        }
+      }
+
+      .reach-card {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        background: white;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .reach-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .reach-image {
+        position: relative;
+      }
+
+      .reach-stats {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hero Section (Updated) -->
+    <section class="hero-section text-white">
+      <div class="container">
+        <div class="hero-top mb-3 text-left">
+          <div class="hero-badge mb-2 aos-fade" data-aos="fade-down">
+            #1 Trending Reels Bundle
           </div>
-
+          <div
+            class="hero-badge mb-2 aos-fade"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
+            <span class="emoji">🚀</span> FIRST TIME ON INTERNET WORLD
+            <span class="emoji">🌍</span>
+          </div>
+          <h1
+            class="hero-title mb-2 aos-fade"
+            data-aos="fade-right"
+            data-aos-delay="200"
+          >
+            Unlock
+            <span class="highlight">2000+ Ultimate Reels Bundle</span> for Your
+            Social Media Success
+          </h1>
+          <div
+            class="hero-subtitle mb-2 aos-fade"
+            data-aos="fade-right"
+            data-aos-delay="300"
+          >
+            No Design Skills Needed. 100% Copyright-Free. Ultra-HD Quality.
+            Instant Access.
+          </div>
         </div>
-        <div class="col-lg-5">
-          <div class="grow-box p-3 p-md-4 mb-3 aos-fade" data-aos="fade-left">
-            <div class="grow-title mb-2">🚀 Ready to Grow Your <span class="highlight">Social Media</span> ?</div>
-            <ul class="feature-list mb-3">
-              <li>✔️500+ Mad scientist Reels Bundle</li>
-              <li>✔️ 700+ EXPERIOS REELS BUNDEL </li>
-              <li>✔️ 800+ 2d animation stories Bundle</li>
-              <li>✔️7000+ Art & Craft Reels Bundle </li>
-              <li>✔️ Saves Hours of Content Creation</li>
-              <li><span class="text-warning font-weight-bold">FREE BONUS: Tools Worth Rs.12,499 <span class="emoji">🎁</span></span></li>
-              <li class="canva-pro-badge pulse-strong"><i class="fab fa-canva canva-pro-icon"></i> FREE 1-YEAR CANVA PRO SUBSCRIPTION</li>
-            </ul>
-            <div class="canva-pro-banner mb-3">
-              <div class="canva-pro-content">
-                <div class="canva-pro-title">EXCLUSIVE BONUS: FREE CANVA PRO</div>
-                <p>Create stunning designs with premium features - Worth Rs. 4,000/year</p>
-                <ul class="canva-pro-features">
-                  <li>100+ million premium stock photos, videos, audio, and graphics</li>
-                  <li>1TB cloud storage for your designs</li>
-                  <li>Brand Kit to save your brand colors, logos and fonts</li>
-                  <li>Background Remover & Magic Resize tools</li>
-                </ul>
+        <div class="row align-items-center justify-content-center">
+          <div class="col-lg-7 mb-4 mb-lg-0">
+            <div class="card-image">
+              <img
+                src="assets/images/main.jpg"
+                class="card-img-top"
+                alt="Motivational Reels"
+              />
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <div class="grow-box p-3 p-md-4 mb-3 aos-fade" data-aos="fade-left">
+              <div class="grow-title mb-2">
+                🚀 Ready to Grow Your
+                <span class="highlight">Social Media</span> ?
+              </div>
+              <ul class="feature-list mb-3">
+                <li>✔️500+ Mad scientist Reels Bundle</li>
+                <li>✔️ 700+ EXPERIOS REELS BUNDEL</li>
+                <li>✔️ 800+ 2d animation stories Bundle</li>
+                <li>✔️7000+ Art & Craft Reels Bundle</li>
+                <li>✔️ Saves Hours of Content Creation</li>
+                <li>
+                  <span class="text-warning font-weight-bold"
+                    >FREE BONUS: Tools Worth Rs.10,000 +<span class="emoji"
+                      >🎁</span
+                    ></span
+                  >
+                </li>
+                <li class="canva-pro-badge pulse-strong">
+                  <i class="fab fa-canva canva-pro-icon"></i> FREE 1-YEAR CANVA
+                  PRO SUBSCRIPTION
+                </li>
+              </ul>
+              <div class="canva-pro-banner mb-3">
+                <div class="canva-pro-content">
+                  <div class="canva-pro-title">
+                    EXCLUSIVE BONUS: FREE CANVA PRO
+                  </div>
+                  <p>
+                    Create stunning designs with premium features - Worth Rs.
+                    4,000/year
+                  </p>
+                  <ul class="canva-pro-features">
+                    <li>
+                      100+ million premium stock photos, videos, audio, and
+                      graphics
+                    </li>
+                    <li>1TB cloud storage for your designs</li>
+                    <li>
+                      Brand Kit to save your brand colors, logos and fonts
+                    </li>
+                    <li>Background Remover & Magic Resize tools</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="cta-offer mb-2">
+                <a
+                  href="#order"
+                  class="btn btn-warning font-weight-bold mb-2 pulse"
+                  >Buy Now for Rs.129/-<br /><small class="text-danger"
+                    >Limited Time Offer</small
+                  ></a
+                >
+              </div>
+              <div class="mb-2 text-success font-weight-bold">
+                Buy Now, Use, Resell & Earn <span class="emoji">💸</span>
+              </div>
+              <div class="trust-badges mt-3">
+                <span class="badge badge-success">100% Secure Checkout</span>
+                <span class="badge badge-info">Instant Delivery</span>
+                <span class="badge badge-warning">Money-Back Guarantee</span>
               </div>
             </div>
-            <div class="cta-offer mb-2">
-              <a href="#order" class="btn btn-warning font-weight-bold mb-2 pulse">Buy Now for Rs.199/-<br><small class="text-danger">Limited Time Offer</small></a>
-            </div>
-            <div class="mb-2 text-success font-weight-bold">Buy Now, Use, Resell & Earn <span class="emoji">💸</span></div>
-            <div class="trust-badges mt-3">
-              <span class="badge badge-success">100% Secure Checkout</span>
-              <span class="badge badge-info">Instant Delivery</span>
-              <span class="badge badge-warning">Money-Back Guarantee</span>
-            </div>
           </div>
         </div>
-      </div>
-      <!-- Order/Buy Section
+        <!-- Order/Buy Section
       <div class="order-section mt-5 aos-fade" id="order" data-aos="zoom-in">
         <div class="order-box p-4 mx-auto">
           <h2 class="order-title mb-3">Place Your Order Now</h2>
@@ -259,633 +334,948 @@
           </div>
         </div>
       </div> -->
-    </div>
-  </section>
-
-  <!-- Features Section with Icons -->
-  <section class="features py-5 text-center">
-    <div class="container">
-      <h2 class="section-title mb-5" data-aos="fade-up">Advanced Features</h2>
-      <div class="row">
-        <div class="col-md-4" data-aos="fade-up">
-          <div class="feature-box">
-            <i class="fas fa-magic fa-3x mb-3"></i>
-            <h5>AI Generated</h5>
-            <p>Each reel is crafted using the power of AI.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-box">
-            <i class="fas fa-video fa-3x mb-3"></i>
-            <h5>HD Quality</h5>
-            <p>High-resolution content ready for social platforms.</p>
-          </div>
-        </div>
-        <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-box">
-            <i class="fas fa-clock fa-3x mb-3"></i>
-            <h5>Time-Saving</h5>
-            <p>Instantly boost your content strategy with bundles.</p>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Reels Section -->
-  <section class="reels-section text-white text-center" id="live-reels">
-    <div class="container">
-      <h2 class="section-title mb-5" data-aos="zoom-in">🎬 Premium Reels Collection</h2>
-      <p class="section-subtitle mb-5" data-aos="fade-up">Choose from our exclusive collection of high-quality reels</p>
-      
-      <div class="row">
-        <!-- Reel 1 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel1.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>Mad Scientist Reel #1</h5>
-              <p>Perfect for tech and innovation content</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 10K+ Views</span>
-                <span><i class="fas fa-heart"></i> 2.5K Likes</span>
-              </div>
+    <!-- Features Section with Icons -->
+    <section class="features py-5 text-center">
+      <div class="container">
+        <h2 class="section-title mb-5" data-aos="fade-up">Advanced Features</h2>
+        <div class="row">
+          <div class="col-md-4" data-aos="fade-up">
+            <div class="feature-box">
+              <i class="fas fa-magic fa-3x mb-3"></i>
+              <h5>AI Generated</h5>
+              <p>Each reel is crafted using the power of AI.</p>
             </div>
           </div>
-        </div>
-
-        <!-- Reel 2 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel2.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>Cartoon Animation #1</h5>
-              <p>Engaging animated content for all ages</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 15K+ Views</span>
-                <span><i class="fas fa-heart"></i> 3.2K Likes</span>
-              </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-box">
+              <i class="fas fa-video fa-3x mb-3"></i>
+              <h5>HD Quality</h5>
+              <p>High-resolution content ready for social platforms.</p>
             </div>
           </div>
-        </div>
-
-        <!-- Reel 3 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel3.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>2D Animation #1</h5>
-              <p>Professional storytelling animations</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 12K+ Views</span>
-                <span><i class="fas fa-heart"></i> 2.8K Likes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reel 4 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel4.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>Mad Scientist Reel #2</h5>
-              <p>Innovative tech showcase content</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 8K+ Views</span>
-                <span><i class="fas fa-heart"></i> 1.9K Likes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reel 5 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel5.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>Cartoon Animation #2</h5>
-              <p>Fun and engaging character animations</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 14K+ Views</span>
-                <span><i class="fas fa-heart"></i> 3.5K Likes</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Reel 6 -->
-        <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="reel-card">
-            <div class="reel-preview">
-              <video class="reel-video" loop playsinline>
-                <source src="assets/videos/reel6.mp4" type="video/mp4">
-              </video>
-              <button class="yt-playpause-btn" aria-label="Play/Pause"><i class="fas fa-play"></i></button>
-            </div>
-            <div class="reel-info">
-              <h5>2D Animation #2</h5>
-              <p>Creative storytelling animations</p>
-              <div class="reel-stats">
-                <span><i class="fas fa-eye"></i> 11K+ Views</span>
-                <span><i class="fas fa-heart"></i> 2.6K Likes</span>
-              </div>
+          <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-box">
+              <i class="fas fa-clock fa-3x mb-3"></i>
+              <h5>Time-Saving</h5>
+              <p>Instantly boost your content strategy with bundles.</p>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="reels-cta mt-5" data-aos="fade-up">
-        <h3>Get Access to All 500+ Premium Reels</h3>
-        <p class="mb-4">Unlock unlimited access to our entire collection of high-quality reels</p>
-        <div class="canva-pro-banner mb-4">
-          <div class="canva-pro-content text-center">
-            <div class="canva-pro-title">
-              <i class="fab fa-canva canva-pro-icon"></i> EXCLUSIVE: FREE 1-YEAR CANVA PRO SUBSCRIPTION
-            </div>
-            <p>Unleash your creativity with professional design tools - Perfect companion for your reels!</p>
-            <div class="mt-3">
-              <span class="badge badge-light font-weight-bold mr-2">Worth Rs. 4,000/year</span>
-              <span class="badge badge-light font-weight-bold">Yours FREE</span>
-            </div>
-          </div>
-        </div>
-        <a href="#pricing" class="btn btn-gradient btn-lg pulse-strong">Get Started Now</a>
-      </div>
-    </div>
-  </section>
+    <!-- Reels Section -->
+    <section class="reels-section text-white text-center" id="live-reels">
+      <div class="container">
+        <h2 class="section-title mb-5" data-aos="zoom-in">
+          🎬 Premium Reels Collection
+        </h2>
+        <p class="section-subtitle mb-5" data-aos="fade-up">
+          Choose from our exclusive collection of high-quality reels
+        </p>
 
-  <!-- Bundle Showcase Section -->
-  <section class="bundles py-5" id="bundles">
-    <div class="container">
-      <h2 class="section-title text-center mb-5" data-aos="fade-up">Premium Bundles</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="zoom-in">
-          <div class="bundle-card">
-            <div class="card-image">
-              <img src="assets/images/mad-scientist.jpg" class="card-img-top" alt="Mad Scientist">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Mad Scientist Reels</h5>
-              <p class="card-text">High-energy visuals for experimentation and innovation themes.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="bundle-card">
-            <div class="card-image">
-              <img src="assets/images/cartoon.jpg" class="card-img-top" alt="Cartoon Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Cartoon Reels Bundle</h5>
-              <p class="card-text">Fun, engaging animated reels for all audiences.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="bundle-card">
-            <div class="card-image">
-              <img src="assets/images/2d-animation.jpg" class="card-img-top" alt="2D Animation">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">800+ 2D Animation Stories</h5>
-              <p class="card-text">Narrative-driven animations perfect for engagement.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Canva Pro Showcase Section -->
-  <section class="canva-pro-section py-5" style="background: linear-gradient(135deg, rgba(0,196,204,0.1) 0%, rgba(125,42,232,0.1) 100%);">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
-          <div style="position: relative;">
-            <img src="assets/images/canva.jpg" alt="Canva Pro on Devices" class="img-fluid rounded shadow">
-            <div class="canva-pro-badge" style="position: absolute; top: 20px; right: 20px; transform: rotate(15deg);">FREE</div>
-          </div>
-        </div>
-        <div class="col-lg-6" data-aos="fade-left">
-          <h2 class="section-title mb-4">EXCLUSIVE BONUS: <span style="color: #00C4CC;">1-YEAR CANVA PRO</span></h2>
-          <p class="lead mb-4">Elevate your social media game with premium design tools!</p>
-          
-          <div class="canva-features mb-4">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <div class="d-flex align-items-start">
-                  <div class="canva-feature-icon mr-3" style="color: #7D2AE8;">
-                    <i class="fas fa-images fa-2x"></i>
-                  </div>
-                  <div>
-                    <h5>Premium Content</h5>
-                    <p>Access 100M+ stock photos, videos, audio and graphics</p>
-                  </div>
-                </div>
+        <div class="row">
+          <!-- Reel 1 -->
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel1.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
               </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex align-items-start">
-                  <div class="canva-feature-icon mr-3" style="color: #7D2AE8;">
-                    <i class="fas fa-magic fa-2x"></i>
-                  </div>
-                  <div>
-                    <h5>Background Remover</h5>
-                    <p>Remove backgrounds with one click</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex align-items-start">
-                  <div class="canva-feature-icon mr-3" style="color: #7D2AE8;">
-                    <i class="fas fa-expand-arrows-alt fa-2x"></i>
-                  </div>
-                  <div>
-                    <h5>Magic Resize</h5>
-                    <p>Instantly resize for any platform</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <div class="d-flex align-items-start">
-                  <div class="canva-feature-icon mr-3" style="color: #7D2AE8;">
-                    <i class="fas fa-palette fa-2x"></i>
-                  </div>
-                  <div>
-                    <h5>Brand Kit</h5>
-                    <p>Save colors, fonts and logos</p>
-                  </div>
+              <div class="reel-info">
+                <h5>Mad Scientist Reel #1</h5>
+                <p>Perfect for tech and innovation content</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 10K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 2.5K Likes</span>
                 </div>
               </div>
             </div>
           </div>
-          
-          <div class="canva-value p-3 mb-4 rounded" style="background-color: rgba(0,0,0,0.1);">
-            <div class="row align-items-center">
-              <div class="col-6">
-                <div class="original-price">
-                  <span style="text-decoration: line-through; color: #777;">Rs. 4,000/year</span>
+
+          <!-- Reel 2 -->
+          <div
+            class="col-md-6 col-lg-4 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel2.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="reel-info">
+                <h5>Cartoon Animation #1</h5>
+                <p>Engaging animated content for all ages</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 15K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 3.2K Likes</span>
                 </div>
-                <div class="current-price" style="font-size: 1.5rem; font-weight: bold; color: #00C4CC;">
-                  FREE
+              </div>
+            </div>
+          </div>
+
+          <!-- Reel 3 -->
+          <div
+            class="col-md-6 col-lg-4 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel3.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="reel-info">
+                <h5>2D Animation #1</h5>
+                <p>Professional storytelling animations</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 12K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 2.8K Likes</span>
                 </div>
               </div>
-              <div class="col-6 text-right">
-                <div class="canva-pro-badge pulse-strong">
-                  <i class="fab fa-canva canva-pro-icon"></i> YOURS FREE
+            </div>
+          </div>
+
+          <!-- Reel 4 -->
+          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up">
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel4.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="reel-info">
+                <h5>Mad Scientist Reel #2</h5>
+                <p>Innovative tech showcase content</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 8K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 1.9K Likes</span>
                 </div>
               </div>
             </div>
           </div>
-          
-          <a href="#order" class="btn btn-gradient btn-lg pulse-strong">Get The Bundle Now</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Real Results from Our Customers Section (Theme Consistent) -->
-  <section class="reels-section text-white text-center" id="testimonials">
-    <div class="container">
-      <h2 class="section-title mb-5" data-aos="fade-up">Real Results from Our Customers</h2>
-      <p class="section-subtitle mb-5" data-aos="fade-up">See the viral reach and engagement our customers get with our AI-generated reels!</p>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="zoom-in">
-          <div class="reel-card">
-            <div class="reel-preview" style="padding:0;">
-              <img src="assets/images/beauty.jpg" alt="Instagram Reach" class="img-fluid" style="border-radius:15px 15px 0 0; height:440px; object-fit:cover; width: 100%;">
-              <div class="reel-stats" style="position:absolute; bottom:15px; left:15px; right:15px;">
-                <span class="badge badge-success">1.2M Views</span>
-                <span class="badge badge-info">45K Likes</span>
+          <!-- Reel 5 -->
+          <div
+            class="col-md-6 col-lg-4 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel5.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="reel-info">
+                <h5>Cartoon Animation #2</h5>
+                <p>Fun and engaging character animations</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 14K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 3.5K Likes</span>
+                </div>
               </div>
             </div>
-            <div class="reel-info">
-              <h5>Beauty Niche</h5>
-              <p>"My engagement increased by 300% in just 2 weeks using these reels!"</p>
-              <p class="reach-user">- Priya S., Influencer</p>
-              <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">Created with Canva Pro</div>
-            </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="reel-card">
-            <div class="reel-preview" style="padding:0;">
-              <img src="assets/images/business- motivation.jpg" alt="Facebook Reach" class="img-fluid" style="border-radius:15px 15px 0 0; height:440px; object-fit:cover; width: 100%;">
-              <div class="reel-stats" style="position:absolute; bottom:15px; left:15px; right:15px;">
-                <span class="badge badge-success">800K Views</span>
-                <span class="badge badge-info">32K Shares</span>
+
+          <!-- Reel 6 -->
+          <div
+            class="col-md-6 col-lg-4 mb-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="reel-card">
+              <div class="reel-preview">
+                <video class="reel-video" loop playsinline>
+                  <source src="assets/videos/reel6.mp4" type="video/mp4" />
+                </video>
+                <button class="yt-playpause-btn" aria-label="Play/Pause">
+                  <i class="fas fa-play"></i>
+                </button>
+              </div>
+              <div class="reel-info">
+                <h5>2D Animation #2</h5>
+                <p>Creative storytelling animations</p>
+                <div class="reel-stats">
+                  <span><i class="fas fa-eye"></i> 11K+ Views</span>
+                  <span><i class="fas fa-heart"></i> 2.6K Likes</span>
+                </div>
               </div>
             </div>
-            <div class="reel-info">
-              <h5>Business Motivation</h5>
-              <p>"These reels have transformed my small business's social presence completely!"</p>
-              <p class="reach-user">- Raj P., Entrepreneur</p>
-              <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">Enhanced with Canva Pro</div>
-            </div>
           </div>
         </div>
-        <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="reel-card">
-            <div class="reel-preview" style="padding:0;">
-              <img src="assets/images/technology.jpg" alt="YouTube Reach" class="img-fluid" style="border-radius:15px 15px 0 0; height:440px; object-fit:cover; width: 100%;">
-              <div class="reel-stats" style="position:absolute; bottom:15px; left:15px; right:15px;">
-                <span class="badge badge-success">2.5M Views</span>
-                <span class="badge badge-info">85K Subscribers</span>
+
+        <div class="reels-cta mt-5" data-aos="fade-up">
+          <h3>Get Access to All 500+ Premium Reels</h3>
+          <p class="mb-4">
+            Unlock unlimited access to our entire collection of high-quality
+            reels
+          </p>
+          <div class="canva-pro-banner mb-4">
+            <div class="canva-pro-content text-center">
+              <div class="canva-pro-title">
+                <i class="fab fa-canva canva-pro-icon"></i> EXCLUSIVE: FREE
+                1-YEAR CANVA PRO SUBSCRIPTION
+              </div>
+              <p>
+                Unleash your creativity with professional design tools - Perfect
+                companion for your reels!
+              </p>
+              <div class="mt-3">
+                <span class="badge badge-light font-weight-bold mr-2"
+                  >Worth Rs. 4,000/year</span
+                >
+                <span class="badge badge-light font-weight-bold"
+                  >Yours FREE</span
+                >
               </div>
             </div>
-            <div class="reel-info">
-              <h5>Technology Content</h5>
-              <p>"Went from 5K to 85K subscribers in just 3 months using these reels!"</p>
-              <p class="reach-user">- Aman T., Tech Creator</p>
-              <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">Designed with Canva Pro</div>
-            </div>
           </div>
+          <a href="#pricing" class="btn btn-gradient btn-lg pulse-strong"
+            >Get Started Now</a
+          >
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Bonuses Section -->
-  <section class="bonuses py-5" id="bonuses">
-    <div class="container">
-      <h2 class="section-title text-center mb-5" data-aos="fade-up">🎁 Special Bonuses</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-right">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/motivation.jpg" class="card-img-top" alt="Motivational Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">1000+ Motivational Reels Bundle</h5>
-              <p>Fuel your brand with purpose-driven content.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/business.jpeg" class="card-img-top" alt="Business Growth Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Business growth Reels Bundle</h5>
-              <p>Boost your business with high-impact growth reels.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-left">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/nature.jpg" class="card-img-top" alt="Nature Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Nature Reels Bundle</h5>
-              <p>Bring peace and freshness to your audience's feed.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-right">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/ai-health.jpeg" class="card-img-top" alt="AI Health Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Ai health Reels Bundle</h5>
-              <p>Share the latest in health and wellness with AI-powered reels.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/tech.jpeg" class="card-img-top" alt="Tech Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Tech Reels Bundle</h5>
-              <p>Showcase innovation and technology trends.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-left">
-          <div class="card">
-            <div class="card-image">
-              <img src="assets/images/travel.webp" class="card-img-top" alt="Travel Reels Bundle">
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">500+ Travel Reels Bundle</h5>
-              <p>Inspire wanderlust with stunning travel reels.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bonuses/Trust/CTA Section Before Footer -->
-  <section class="cta-bonuses-section text-center py-5">
-    <div class="container">
-      <h2 class="cta-bonuses-title mb-3 aos-fade" data-aos="fade-up">Ultra-HD AI-Generated Visuals <span class="highlight-offer">Instant Download, Lifetime Access</span></h2>
-      <div class="cta-bonuses-subtitle mb-4 aos-fade" data-aos="fade-up" data-aos-delay="100">Limited-Time Offer – Grab it NOW! <span class="emoji">👇</span></div>
-      <div class="row justify-content-center mb-4 aos-fade" data-aos="zoom-in" data-aos-delay="200">
-        <div class="col-6 col-md-3 mb-3 mb-md-0">
-          <img src="assets/images/trusted.png" alt="Trusted" class="cta-badge-img mb-2"><br>
-          <span class="cta-badge-label">TRUSTED</span>
-        </div>
-        <div class="col-6 col-md-3 mb-3 mb-md-0">
-          <img src="assets/images/best-price.png" alt="Best Price" class="cta-badge-img mb-2"><br>
-          <span class="cta-badge-label">BEST PRICE</span>
-        </div>
-        <div class="col-6 col-md-3 mb-3 mb-md-0">
-          <img src="assets/images/guaranteed.png" alt="Satisfaction Guaranteed" class="cta-badge-img mb-2"><br>
-          <span class="cta-badge-label">100% SATISFACTION</span>
-        </div>
-      </div>
-      <div class="cta-bonuses-offer mt-4 mb-3 aos-fade" data-aos="fade-up" data-aos-delay="300">
-        <h3 class="cta-bonuses-headline mb-2">🎁 JOIN NOW & GET RS.8000/- BONUSES <span class="highlight-free">100% FREE <span class="emoji">🥳</span></span></h3>
-        <div class="cta-bonuses-desc mb-2">We've done all the hard work for you! Get 1600+ ready-made, high-performing AI reels, created by top social media experts. Normally sold for Rs.5000+ – now yours for a fraction of the price!</div>
-        <div class="cta-bonuses-cta mb-3">
-          <a href="#" class="btn btn-gradient btn-lg pulse mb-2">Buy Now Just Rs.199/-</a>
-          <a href="#" class="btn btn-outline-light btn-lg ml-2 mb-2">Become A Viral Content Creator</a>
-        </div>
-        <div class="cta-bonuses-meta text-warning font-weight-bold">One Time Payment Only <span class="emoji">🔥</span> Lifetime Access <span class="emoji">🔒</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Popular Reach Showcase Section (fixed images, improved contrast) -->
-  <section class="reach-showcase py-5 text-white">
-    <div class="container">
-      <h2 class="section-title mb-5 text-center" data-aos="fade-up">Our Reels' Popular Reach</h2>
-      <div class="row">
-        <div class="col-md-4 mb-4" data-aos="fade-up">
-          <div class="reach-card">
-            <div class="reach-image">
-              <img src="assets/images/reach1.jpg" alt="Reach Stats" class="img-fluid">
-              <div class="reach-stats">
-                <span class="badge badge-primary reach-badge">1.2M Views</span>
-                <span class="badge badge-success reach-badge">45K Shares</span>
+    <!-- Bundle Showcase Section -->
+    <section class="bundles py-5" id="bundles">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">
+          Premium Bundles
+        </h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" data-aos="zoom-in">
+            <div class="bundle-card">
+              <div class="card-image">
+                <img
+                  src="assets/images/mad-scientist.jpg"
+                  class="card-img-top"
+                  alt="Mad Scientist"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Mad Scientist Reels</h5>
+                <p class="card-text">
+                  High-energy visuals for experimentation and innovation themes.
+                </p>
               </div>
             </div>
-            <div class="card-body2">
-              <h5>Viral Tech Reel</h5>
-              <p>Reached over 1.2M views in just 48 hours</p>
-            </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
-          <div class="reach-card">
-            <div class="reach-image">
-              <img src="assets/images/reach2.jpg" alt="Reach Stats" class="img-fluid">
-              <div class="reach-stats">
-                <span class="badge badge-primary reach-badge">850K Views</span>
-                <span class="badge badge-success reach-badge">32K Shares</span>
+          <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="bundle-card">
+              <div class="card-image">
+                <img
+                  src="assets/images/cartoon.jpg"
+                  class="card-img-top"
+                  alt="Cartoon Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">700+ Experios & Miniature Reels</h5>
+                <p class="card-text">
+                  Fun, engaging animated reels for all audiences.
+                </p>
               </div>
             </div>
-            <div class="card-body2">
-              <h5>Animation Success</h5>
-              <p>Engagement rate of 8.5% on Instagram</p>
-            </div>
           </div>
-        </div>
-        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="reach-card">
-            <div class="reach-image">
-              <img src="assets/images/reach3.jpg" alt="Reach Stats" class="img-fluid">
-              <div class="reach-stats">
-                <span class="badge badge-primary reach-badge">2.1M Views</span>
-                <span class="badge badge-success reach-badge">78K Shares</span>
+          <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="bundle-card">
+              <div class="card-image">
+                <img
+                  src="assets/images/2d-animation.jpg"
+                  class="card-img-top"
+                  alt="2D Animation"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">800+ 2D Animation Stories</h5>
+                <p class="card-text">
+                  Narrative-driven animations perfect for engagement.
+                </p>
               </div>
             </div>
-            <div class="card-body2">
-              <h5>Viral Marketing</h5>
-              <p>Featured on major social media platforms</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canva Pro Showcase Section -->
+    <section
+      class="canva-pro-section py-5"
+      style="
+        background: linear-gradient(
+          135deg,
+          rgba(0, 196, 204, 0.1) 0%,
+          rgba(125, 42, 232, 0.1) 100%
+        );
+      "
+    >
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+            <div style="position: relative">
+              <img
+                src="assets/images/canva.jpg"
+                alt="Canva Pro on Devices"
+                class="img-fluid rounded shadow"
+              />
+              <div
+                class="canva-pro-badge"
+                style="
+                  position: absolute;
+                  top: 20px;
+                  right: 20px;
+                  transform: rotate(15deg);
+                "
+              >
+                FREE
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h2 class="section-title mb-4">
+              EXCLUSIVE BONUS:
+              <span style="color: #00c4cc">1-YEAR CANVA PRO</span>
+            </h2>
+            <p class="lead mb-4">
+              Elevate your social media game with premium design tools!
+            </p>
+
+            <div class="canva-features mb-4">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex align-items-start">
+                    <div class="canva-feature-icon mr-3" style="color: #7d2ae8">
+                      <i class="fas fa-images fa-2x"></i>
+                    </div>
+                    <div>
+                      <h5>Premium Content</h5>
+                      <p>
+                        Access 100M+ stock photos, videos, audio and graphics
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex align-items-start">
+                    <div class="canva-feature-icon mr-3" style="color: #7d2ae8">
+                      <i class="fas fa-magic fa-2x"></i>
+                    </div>
+                    <div>
+                      <h5>Background Remover</h5>
+                      <p>Remove backgrounds with one click</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex align-items-start">
+                    <div class="canva-feature-icon mr-3" style="color: #7d2ae8">
+                      <i class="fas fa-expand-arrows-alt fa-2x"></i>
+                    </div>
+                    <div>
+                      <h5>Magic Resize</h5>
+                      <p>Instantly resize for any platform</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <div class="d-flex align-items-start">
+                    <div class="canva-feature-icon mr-3" style="color: #7d2ae8">
+                      <i class="fas fa-palette fa-2x"></i>
+                    </div>
+                    <div>
+                      <h5>Brand Kit</h5>
+                      <p>Save colors, fonts and logos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="canva-value p-3 mb-4 rounded"
+              style="background-color: rgba(0, 0, 0, 0.1)"
+            >
+              <div class="row align-items-center">
+                <div class="col-6">
+                  <div class="original-price">
+                    <span style="text-decoration: line-through; color: #777"
+                      >Rs. 4,000/year</span
+                    >
+                  </div>
+                  <div
+                    class="current-price"
+                    style="font-size: 1.5rem; font-weight: bold; color: #00c4cc"
+                  >
+                    FREE
+                  </div>
+                </div>
+                <div class="col-6 text-right">
+                  <div class="canva-pro-badge pulse-strong">
+                    <i class="fab fa-canva canva-pro-icon"></i> YOURS FREE
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#order" class="btn btn-gradient btn-lg pulse-strong"
+              >Get The Bundle Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Real Results from Our Customers Section (Theme Consistent) -->
+    <section class="reels-section text-white text-center" id="testimonials">
+      <div class="container">
+        <h2 class="section-title mb-5" data-aos="fade-up">
+          Real Results from Our Customers
+        </h2>
+        <p class="section-subtitle mb-5" data-aos="fade-up">
+          See the viral reach and engagement our customers get with our
+          AI-generated reels!
+        </p>
+        <div class="row">
+          <div class="col-md-4 mb-4" data-aos="zoom-in">
+            <div class="reel-card">
+              <div class="reel-preview" style="padding: 0">
+                <img
+                  src="assets/images/beauty.jpg"
+                  alt="Instagram Reach"
+                  class="img-fluid"
+                  style="
+                    border-radius: 15px 15px 0 0;
+                    height: 440px;
+                    object-fit: cover;
+                    width: 100%;
+                  "
+                />
+                <div
+                  class="reel-stats"
+                  style="
+                    position: absolute;
+                    bottom: 15px;
+                    left: 15px;
+                    right: 15px;
+                  "
+                >
+                  <span class="badge badge-success">1.2M Views</span>
+                  <span class="badge badge-info">45K Likes</span>
+                </div>
+              </div>
+              <div class="reel-info">
+                <h5>Beauty Niche</h5>
+                <p>
+                  "My engagement increased by 300% in just 2 weeks using these
+                  reels!"
+                </p>
+                <p class="reach-user">- Priya S., Influencer</p>
+                <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">
+                  Created with Canva Pro
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="reel-card">
+              <div class="reel-preview" style="padding: 0">
+                <img
+                  src="assets/images/business- motivation.jpg"
+                  alt="Facebook Reach"
+                  class="img-fluid"
+                  style="
+                    border-radius: 15px 15px 0 0;
+                    height: 440px;
+                    object-fit: cover;
+                    width: 100%;
+                  "
+                />
+                <div
+                  class="reel-stats"
+                  style="
+                    position: absolute;
+                    bottom: 15px;
+                    left: 15px;
+                    right: 15px;
+                  "
+                >
+                  <span class="badge badge-success">800K Views</span>
+                  <span class="badge badge-info">32K Shares</span>
+                </div>
+              </div>
+              <div class="reel-info">
+                <h5>Business Motivation</h5>
+                <p>
+                  "These reels have transformed my small business's social
+                  presence completely!"
+                </p>
+                <p class="reach-user">- Raj P., Entrepreneur</p>
+                <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">
+                  Enhanced with Canva Pro
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="reel-card">
+              <div class="reel-preview" style="padding: 0">
+                <img
+                  src="assets/images/technology.jpg"
+                  alt="YouTube Reach"
+                  class="img-fluid"
+                  style="
+                    border-radius: 15px 15px 0 0;
+                    height: 440px;
+                    object-fit: cover;
+                    width: 100%;
+                  "
+                />
+                <div
+                  class="reel-stats"
+                  style="
+                    position: absolute;
+                    bottom: 15px;
+                    left: 15px;
+                    right: 15px;
+                  "
+                >
+                  <span class="badge badge-success">2.5M Views</span>
+                  <span class="badge badge-info">85K Subscribers</span>
+                </div>
+              </div>
+              <div class="reel-info">
+                <h5>Technology Content</h5>
+                <p>
+                  "Went from 5K to 85K subscribers in just 3 months using these
+                  reels!"
+                </p>
+                <p class="reach-user">- Aman T., Tech Creator</p>
+                <div class="canva-pro-badge mt-2" style="font-size: 0.8rem">
+                  Designed with Canva Pro
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Custom FAQ Section (modern toggle, no Bootstrap collapse) -->
-  <section class="faq-section custom-faq py-5" id="faq">
-    <div class="container">
-      <h2 class="section-title text-center mb-5" data-aos="fade-up">Frequently Asked Questions</h2>
-      <div class="custom-accordion" id="customFaqAccordion">
-        <div class="faq-item" data-aos="fade-up">
-          <button class="faq-question" type="button">What's included in the bundle?<span class="faq-toggle-icon">+</span></button>
-          <div class="faq-answer">
-            The bundle includes 1600+ AI-generated reels, instant download access, and a FREE 1-year Canva Pro subscription worth Rs.12,000. All content is copyright-free and ready to use on any social media platform.
+    <!-- Bonuses Section -->
+    <section class="bonuses py-5" id="bonuses">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">
+          🎁 Special Bonuses
+        </h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" data-aos="fade-right">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/motivation.jpg"
+                  class="card-img-top"
+                  alt="Motivational Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">1000+ Motivational Reels Bundle</h5>
+                <p>Fuel your brand with purpose-driven content.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
-          <button class="faq-question" type="button">How can I claim the Canva Pro bonus?
-            <span class="faq-toggle-icon">+</span></button>
-          <div class="faq-answer">
-            Simply share a screenshot of your payment confirmation along with the email address where you'd like to receive the Canva Pro access via WhatsApp. Once we verify your details, we'll send your bonus right away!
-
-            You can find the WhatsApp link in the contact section. If not, don't worry — the link is also included in the file you'll receive after purchase.
-            
+          <div class="col-md-4 mb-4" data-aos="fade-up">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/business.jpeg"
+                  class="card-img-top"
+                  alt="Business Growth Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Business growth Reels Bundle</h5>
+                <p>Boost your business with high-impact growth reels.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
-          <button class="faq-question" type="button">Can I resell these reels?<span class="faq-toggle-icon">+</span></button>
-          <div class="faq-answer">
-            Yes! You have full resell rights to all the reels in the bundle. You can use them for your own content or resell them to others. The license is included with your purchase.
+          <div class="col-md-4 mb-4" data-aos="fade-left">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/nature.jpg"
+                  class="card-img-top"
+                  alt="Nature Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Nature Reels Bundle</h5>
+                <p>Bring peace and freshness to your audience's feed.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
-          <button class="faq-question" type="button">What's the refund policy?<span class="faq-toggle-icon">+</span></button>
-          <div class="faq-answer">
-            We offer a 30-day money-back guarantee. If you're not satisfied with the bundle, simply contact our support team within 30 days of purchase for a full refund.
+          <div class="col-md-4 mb-4" data-aos="fade-right">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/ai-health.jpeg"
+                  class="card-img-top"
+                  alt="AI Health Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Ai health Reels Bundle</h5>
+                <p>
+                  Share the latest in health and wellness with AI-powered reels.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="fade-up">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/tech.jpeg"
+                  class="card-img-top"
+                  alt="Tech Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Tech Reels Bundle</h5>
+                <p>Showcase innovation and technology trends.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="fade-left">
+            <div class="card">
+              <div class="card-image">
+                <img
+                  src="assets/images/travel.webp"
+                  class="card-img-top"
+                  alt="Travel Reels Bundle"
+                />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">500+ Travel Reels Bundle</h5>
+                <p>Inspire wanderlust with stunning travel reels.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="text-center text-white py-4" data-aos="fade-up">
-    <div class="container">
-      <div class="social-contact-buttons mb-3">
-        <a href="https://wa.me/917737978850" class="social-btn whatsapp-btn" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://instagram.com/officialnexauradigitals" class="social-btn instagram-btn" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://mailto:Nexauradigitals.offi@gmail.com" class="social-btn gmail-btn">
-          <i class="fas fa-envelope"></i>
-        </a>
+    <!-- Bonuses/Trust/CTA Section Before Footer -->
+    <section class="cta-bonuses-section text-center py-5">
+      <div class="container">
+        <h2 class="cta-bonuses-title mb-3 aos-fade" data-aos="fade-up">
+          Ultra-HD AI-Generated Visuals
+          <span class="highlight-offer">Instant Download, Lifetime Access</span>
+        </h2>
+        <div
+          class="cta-bonuses-subtitle mb-4 aos-fade"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          Limited-Time Offer – Grab it NOW! <span class="emoji">👇</span>
+        </div>
+        <div
+          class="row justify-content-center mb-4 aos-fade"
+          data-aos="zoom-in"
+          data-aos-delay="200"
+        >
+          <div class="col-6 col-md-3 mb-3 mb-md-0">
+            <img
+              src="assets/images/trusted.png"
+              alt="Trusted"
+              class="cta-badge-img mb-2"
+            /><br />
+            <span class="cta-badge-label">TRUSTED</span>
+          </div>
+          <div class="col-6 col-md-3 mb-3 mb-md-0">
+            <img
+              src="assets/images/best-price.png"
+              alt="Best Price"
+              class="cta-badge-img mb-2"
+            /><br />
+            <span class="cta-badge-label">BEST PRICE</span>
+          </div>
+          <div class="col-6 col-md-3 mb-3 mb-md-0">
+            <img
+              src="assets/images/guaranteed.png"
+              alt="Satisfaction Guaranteed"
+              class="cta-badge-img mb-2"
+            /><br />
+            <span class="cta-badge-label">100% SATISFACTION</span>
+          </div>
+        </div>
+        <div
+          class="cta-bonuses-offer mt-4 mb-3 aos-fade"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <h3 class="cta-bonuses-headline mb-2">
+            🎁 JOIN NOW & GET RS.10,000/- + BONUSES
+            <span class="highlight-free"
+              >100% FREE <span class="emoji">🥳</span></span
+            >
+          </h3>
+          <div class="cta-bonuses-desc mb-2">
+            We've done all the hard work for you! Get 1600+ ready-made,
+            high-performing AI reels, created by top social media experts.
+            Normally sold for Rs.5000+ – now yours for a fraction of the price!
+          </div>
+          <div class="cta-bonuses-cta mb-3">
+            <a href="#" class="btn btn-gradient btn-lg pulse mb-2"
+              >Buy Now Just Rs.129/-</a
+            >
+            <a href="#" class="btn btn-outline-light btn-lg ml-2 mb-2"
+              >Become A Viral Content Creator</a
+            >
+          </div>
+          <div class="cta-bonuses-meta text-warning font-weight-bold">
+            One Time Payment Only <span class="emoji">🔥</span> Lifetime Access
+            <span class="emoji">🔒</span>
+          </div>
+        </div>
       </div>
-      <p class="mb-0">&copy; 2025 AI Reels Mega Bundle. All Rights Reserved.</p>
-    </div>
-  </footer>
+    </section>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script src="js/script.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      once: true,
-      offset: 100
-    });
-    
-    // Video playback functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const playButtons = document.querySelectorAll('.yt-playpause-btn');
-      
-      playButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const video = this.previousElementSibling;
-          const icon = this.querySelector('i');
-          
-          if (video.paused) {
-            video.play();
-            icon.classList.remove('fa-play');
-            icon.classList.add('fa-pause');
-          } else {
-            video.pause();
-            icon.classList.remove('fa-pause');
-            icon.classList.add('fa-play');
-          }
+    <!-- Popular Reach Showcase Section (fixed images, improved contrast) -->
+    <section class="reach-showcase py-5 text-white">
+      <div class="container">
+        <h2 class="section-title mb-5 text-center" data-aos="fade-up">
+          Our Reels' Popular Reach
+        </h2>
+        <div class="row">
+          <div class="col-md-4 mb-4" data-aos="fade-up">
+            <div class="reach-card">
+              <div class="reach-image">
+                <img
+                  src="assets/images/reach1.jpg"
+                  alt="Reach Stats"
+                  class="img-fluid"
+                />
+                <div class="reach-stats">
+                  <span class="badge badge-primary reach-badge"
+                    >1.2M Views</span
+                  >
+                  <span class="badge badge-success reach-badge"
+                    >45K Shares</span
+                  >
+                </div>
+              </div>
+              <div class="card-body2">
+                <h5>Viral Miniature reels</h5>
+                <p>Reached over 1.2M views in just 48 hours</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="reach-card">
+              <div class="reach-image">
+                <img
+                  src="assets/images/reach2.jpg"
+                  alt="Reach Stats"
+                  class="img-fluid"
+                />
+                <div class="reach-stats">
+                  <span class="badge badge-primary reach-badge"
+                    >850K Views</span
+                  >
+                  <span class="badge badge-success reach-badge"
+                    >32K Shares</span
+                  >
+                </div>
+              </div>
+              <div class="card-body2">
+                <h5>Animation Success</h5>
+                <p>Engagement rate of 8.5% on Instagram</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="reach-card">
+              <div class="reach-image">
+                <img
+                  src="assets/images/reach3.jpg"
+                  alt="Reach Stats"
+                  class="img-fluid"
+                />
+                <div class="reach-stats">
+                  <span class="badge badge-primary reach-badge"
+                    >2.1M Views</span
+                  >
+                  <span class="badge badge-success reach-badge"
+                    >78K Shares</span
+                  >
+                </div>
+              </div>
+              <div class="card-body2">
+                <h5>Viral Experios Reels</h5>
+                <p>Featured on major social media platforms</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Custom FAQ Section (modern toggle, no Bootstrap collapse) -->
+    <section class="faq-section custom-faq py-5" id="faq">
+      <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">
+          Frequently Asked Questions
+        </h2>
+        <div class="custom-accordion" id="customFaqAccordion">
+          <div class="faq-item" data-aos="fade-up">
+            <button class="faq-question" type="button">
+              What's included in the bundle?<span class="faq-toggle-icon"
+                >+</span
+              >
+            </button>
+            <div class="faq-answer">
+              The bundle includes 1600+ AI-generated reels, instant download
+              access, and a FREE 1-year Canva Pro subscription worth Rs.4,000.
+              All content is copyright-free and ready to use on any social media
+              platform.
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+            <button class="faq-question" type="button">
+              How can I claim the Canva Pro bonus?
+              <span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Simply share a screenshot of your payment confirmation along with
+              the email address where you'd like to receive the Canva Pro access
+              via WhatsApp. Once we verify your details, we'll send your bonus
+              right away! You can find the WhatsApp link in the contact section.
+              If not, don't worry — the link is also included in the file you'll
+              receive after purchase.
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+            <button class="faq-question" type="button">
+              Can I resell these reels?<span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Yes! You have full resell rights to all the reels in the bundle.
+              You can use them for your own content or resell them to others.
+              The license is included with your purchase.
+            </div>
+          </div>
+          <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+            <button class="faq-question" type="button">
+              What's the refund policy?<span class="faq-toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              Since this is a digital product with instant access, we do not
+              offer refunds after purchase. If you face any issues with the
+              files or access, feel free to contact us on WhatsApp — we’ll be
+              happy to help you.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center text-white py-4" data-aos="fade-up">
+      <div class="container">
+        <div class="social-contact-buttons mb-3">
+          <a
+            href="https://wa.me/917737978850"
+            class="social-btn whatsapp-btn"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a
+            href="https://instagram.com/officialnexauradigitals"
+            class="social-btn instagram-btn"
+            target="_blank"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="https://mailto:Nexauradigitals.offi@gmail.com"
+            class="social-btn gmail-btn"
+          >
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        <p class="mb-0">
+          &copy; 2025 AI Reels Mega Bundle. All Rights Reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Video playback functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const playButtons = document.querySelectorAll(".yt-playpause-btn");
+
+        playButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const video = this.previousElementSibling;
+            const icon = this.querySelector("i");
+
+            if (video.paused) {
+              video.play();
+              icon.classList.remove("fa-play");
+              icon.classList.add("fa-pause");
+            } else {
+              video.pause();
+              icon.classList.remove("fa-pause");
+              icon.classList.add("fa-play");
+            }
+          });
+        });
+
+        // Initialize Bootstrap components
+        $(".collapse").on("shown.bs.collapse", function () {
+          const cardOffset = $(this).offset().top - 100;
+          $("html, body").animate(
+            {
+              scrollTop: cardOffset,
+            },
+            500
+          );
         });
       });
-      
-      // Initialize Bootstrap components
-      $('.collapse').on('shown.bs.collapse', function() {
-        const cardOffset = $(this).offset().top - 100;
-        $('html, body').animate({
-          scrollTop: cardOffset
-        }, 500);
-      });
-    });
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
