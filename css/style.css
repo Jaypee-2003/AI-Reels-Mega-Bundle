@@ -133,8 +133,16 @@ body {
 .section-subtitle {
     color: rgba(255, 255, 255, 0.8);
     font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 800px;
+    margin: 0 auto 2rem auto;
+    text-align: left;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.section-subtitle.text-left {
+    margin-left: 0;
+    margin-right: auto;
 }
 
 /* Reel Card */
