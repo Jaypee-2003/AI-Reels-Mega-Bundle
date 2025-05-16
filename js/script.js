@@ -54,13 +54,19 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle YouTube-like play/pause for reels
+    // Video playback functionality
     const reelPreviews = document.querySelectorAll('.reel-preview');
     reelPreviews.forEach(preview => {
         const video = preview.querySelector('video');
         const btn = preview.querySelector('.yt-playpause-btn');
         const icon = btn.querySelector('i');
+        const loadingIndicator = preview.querySelector('.video-loading');
 
+        if (!video || !btn) return;
+
+        // Preload video
+        video.preload = 'auto';
+        
         // Helper to pause all other videos
         function pauseAllOthers() {
             document.querySelectorAll('.reel-video').forEach(v => {
@@ -75,29 +81,73 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Show loading state
+        function showLoading() {
+            loadingIndicator.classList.add('active');
+            btn.classList.add('loading');
+        }
+
+        // Hide loading state
+        function hideLoading() {
+            loadingIndicator.classList.remove('active');
+            btn.classList.remove('loading');
+        }
+
         // Toggle play/pause
-        function togglePlayPause() {
-            if (video.paused) {
-                pauseAllOthers();
-                video.play();
-                icon.classList.remove('fa-play');
-                icon.classList.add('fa-pause');
-            } else {
-                video.pause();
+        async function togglePlayPause() {
+            try {
+                if (video.paused) {
+                    showLoading();
+                    pauseAllOthers();
+                    
+                    // Ensure video is loaded
+                    if (video.readyState < 2) {
+                        await video.load();
+                    }
+                    
+                    await video.play();
+                    icon.classList.remove('fa-play');
+                    icon.classList.add('fa-pause');
+                } else {
+                    video.pause();
+                    icon.classList.remove('fa-pause');
+                    icon.classList.add('fa-play');
+                }
+            } catch (error) {
+                console.error("Video playback error:", error);
+                // Reset icon if play fails
                 icon.classList.remove('fa-pause');
                 icon.classList.add('fa-play');
+            } finally {
+                hideLoading();
             }
         }
 
-        // Button click
+        // Button click with debounce
+        let isClicking = false;
         btn.addEventListener('click', function(e) {
+            e.preventDefault();
             e.stopPropagation();
-            togglePlayPause();
+            
+            if (!isClicking) {
+                isClicking = true;
+                togglePlayPause();
+                setTimeout(() => {
+                    isClicking = false;
+                }, 300); // Prevent multiple clicks within 300ms
+            }
         });
 
         // Click on video toggles play/pause
-        video.addEventListener('click', function() {
-            togglePlayPause();
+        video.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (!isClicking) {
+                isClicking = true;
+                togglePlayPause();
+                setTimeout(() => {
+                    isClicking = false;
+                }, 300);
+            }
         });
 
         // When video ends, show play icon
@@ -116,6 +166,25 @@ document.addEventListener('DOMContentLoaded', function() {
         video.addEventListener('play', function() {
             icon.classList.remove('fa-play');
             icon.classList.add('fa-pause');
+        });
+
+        // Handle video loading states
+        video.addEventListener('waiting', function() {
+            showLoading();
+        });
+
+        video.addEventListener('playing', function() {
+            hideLoading();
+        });
+
+        video.addEventListener('loadeddata', function() {
+            hideLoading();
+            console.log('Video loaded successfully');
+        });
+
+        video.addEventListener('error', function(e) {
+            hideLoading();
+            console.error('Video loading error:', e);
         });
     });
 
